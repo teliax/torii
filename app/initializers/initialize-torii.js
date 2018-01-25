@@ -1,6 +1,6 @@
 import bootstrapTorii from 'torii/bootstrap/torii';
 import {configure} from 'torii/configuration';
-import config from '../config/environment';
+import fetch from 'fetch';
  
 
 var initializer = {
@@ -9,7 +9,12 @@ var initializer = {
     if (arguments[1]) { // Ember < 2.1
       application = arguments[1];
     }
-    configure(config.torii || {});
+    let url = "/config";
+    let response = fetch(url).then(response => {
+      response.json().then(json => {
+        configure(json.torii || {});
+      });
+    });
     bootstrapTorii(application);
     application.inject('route', 'torii', 'service:torii');
   }
