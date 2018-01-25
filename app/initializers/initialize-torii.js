@@ -10,7 +10,7 @@ var initializer = {
       application = arguments[1];
     }
     let url = "/config";
-    let response = fetch(url_.then(response => {
+    let response = fetch(url).then(response => {
       response.json().then(json => {
         configure(json.torii || {});
       });
