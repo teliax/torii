@@ -5,7 +5,7 @@ import fetch from 'fetch';
 
 var initializer = {
   name: 'torii',
-  initialize async function(application) {
+  initialize: async function(application) {
     if (arguments[1]) { // Ember < 2.1
       application = arguments[1];
     }
