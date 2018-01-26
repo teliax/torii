@@ -12,7 +12,7 @@ var initializer = {
     let url = "/config";
     let response = fetch(url).then(response => {
       response.json().then(json => {
-        configure(json.frontend.torii || {});
+        configure(json.torii || {});
       });
     });
     bootstrapTorii(application);
